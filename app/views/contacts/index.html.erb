@@ -5,6 +5,7 @@
     <th>First name</th>
     <th>Last name</th>
     <th>Phone</th>
+    <th>Addresses</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +16,13 @@
     <td><%= contact.first_name %></td>
     <td><%= contact.last_name %></td>
     <td><%= contact.phone %></td>
+    <td>
+      <% streets = [] %>
+      <% contact.addresses.each do |address|%>
+      <% streets << address.street %>
+      <% end %>
+      <%= streets.join(", ")%>
+    </td>
     <td><%= link_to 'Show', contact %></td>
     <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
     <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>

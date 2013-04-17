@@ -17,7 +17,12 @@
 
 <p>
   <b>Addresses:</b>
-  <%= @contact.addresses %>
+  <ul>
+  	<% @contact.addresses.each do |address|%>
+  	<li> <%= address.street %> </li>
+  <% end %>
+  </ul>
+  
 </p>
 
 <%= link_to 'add new address', new_contact_address_path(@contact) %>
