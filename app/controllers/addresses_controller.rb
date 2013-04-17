@@ -10,7 +10,7 @@ class AddressesController < ApplicationController
   # GET /invoices/new.json
   def new
     @contact = Contact.find(params[:contact_id])
-    @address = @contact.addresses
+    @address = Address.new
   end
 
   # GET /invoices/1/edit
@@ -21,7 +21,7 @@ class AddressesController < ApplicationController
 
   def create
     @contact = Contact.find(params[:contact_id])
-    @address = @contact.build_address(params[:address])
+    @address = @contact.addresses.create(params[:address])
 
     if @address.save
       redirect_to @contact, :notice => 'address was successfully created'

@@ -2,7 +2,7 @@ Agenda2::Application.routes.draw do
 
   resources :contacts
   resources :contacts do
-    resource :addresses, :except => 'show'
+    resources :addresses#, :except => 'show'
   end
 
   # The priority is based upon order of creation:
