@@ -19,7 +19,12 @@
   <b>Addresses:</b>
   <ul>
   	<% @contact.addresses.each do |address|%>
-  	<li> <%= address.street %> </li>
+  	<li> 
+      <%= address.street  %> 
+      <%= link_to 'Edit', edit_contact_address_path(address) %>
+      
+      
+    </li>
   <% end %>
   </ul>
   

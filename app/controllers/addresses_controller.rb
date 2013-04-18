@@ -16,7 +16,7 @@ class AddressesController < ApplicationController
   # GET /invoices/1/edit
   def edit
     @contact = Contact.find(params[:contact_id])
-    @address = @contact.build_address
+    @address = Address.new
   end
 
   def create
