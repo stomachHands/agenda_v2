@@ -2,7 +2,7 @@ class AddressesController < ApplicationController
   def show
     # we'll integrate the Invoice details in the Show Purchase screen
     #redirect_to contact_path(params[:contact_id])
-    @contact = Contact.find(params[:id])
+    @contact = Contact.find(params[:contact_id])
     @addresses = @contact.addresses
   end
 
@@ -16,7 +16,7 @@ class AddressesController < ApplicationController
   # GET /invoices/1/edit
   def edit
     @contact = Contact.find(params[:contact_id])
-    @address = Address.new
+    @address = Address.new(params[:address])
   end
 
   def create

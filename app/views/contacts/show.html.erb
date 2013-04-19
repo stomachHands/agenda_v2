@@ -21,7 +21,8 @@
   	<% @contact.addresses.each do |address|%>
   	<li> 
       <%= address.street  %> 
-      <%= link_to 'Edit', edit_contact_address_path(address) %>
+      <%= link_to 'Edit', edit_contact_address_path(@contact, address) %>
+      
       
       
     </li>
