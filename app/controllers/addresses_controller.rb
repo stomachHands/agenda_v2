@@ -16,7 +16,7 @@ class AddressesController < ApplicationController
   # GET /invoices/1/edit
   def edit
     @contact = Contact.find(params[:contact_id])
-    @address = Address.new(params[:address])
+    @address = @contact.addresses.find(params[:id])
   end
 
   def create
@@ -34,9 +34,8 @@ class AddressesController < ApplicationController
   # PUT /invoices/1.json
   def update
     @contact = Contact.find(params[:contact_id])
-    @address = @contact.address
-
-    if @address.update_attributes(params[:contact_id])
+    @address = @contact.addresses.find(params[:id])
+    if @address.update_attributes(params[:address])
       redirect_to @contact, :notice => 'address was successfully created'
     else
       render :action => "edit"
@@ -47,7 +46,7 @@ class AddressesController < ApplicationController
   # DELETE /invoices/1.json
   def destroy
    @contact = Contact.find(params[:contact_id])
-   @address = @contact.address
+   @address = @contact.addresses.find(params[:id])
    @address.destroy
 
    redirect_to @contact

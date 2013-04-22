@@ -22,7 +22,7 @@
   	<li> 
       <%= address.street  %> 
       <%= link_to 'Edit', edit_contact_address_path(@contact, address) %>
-      
+      <%= link_to 'Destroy', contact_address_path(@contact, address), method: :delete, data: { confirm: 'Are you sure?' } %>
       
       
     </li>
